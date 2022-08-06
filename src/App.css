@@ -110,7 +110,6 @@ form button {
 }
 
 .todo-list {
-	/* border: 1px solid yellow; */
 	display: flex;
 	align-items: center;
 	padding: 0.5rem;
@@ -122,6 +121,7 @@ form button {
 	cursor: pointer;
 	display: flex;
 	gap: 0.5rem;
+	align-items: center;
 }
 
 .todo-list label input[type="checkbox"] {
@@ -173,10 +173,6 @@ form button {
 }
 
 @media screen and (max-width: 412px) {
-	/* form {
-		flex-direction: column;
-	} */
-
 	form .desktop-view {
 		display: none;
 	}
