@@ -109,22 +109,31 @@ form button {
 	padding: 0.5rem;
 	background-color: #cac7c7;
 	border-radius: 0.3rem;
+	width: 100%;
+	word-break: break-all;
 }
 
 .todo-list label {
 	cursor: pointer;
 	display: flex;
 	gap: 0.5rem;
-	align-items: center;
+	overflow-wrap: break-word;
+	width: 90%;
 }
 
 .todo-list label input[type="checkbox"] {
 	accent-color: #333;
 }
 
-.todo-list:hover {
-	background-color: #777;
-	color: white;
+.todo-list label span {
+	align-self: center;
+}
+
+@media (hover: hover) {
+	.todo-list:hover {
+		background-color: #777;
+		color: white;
+	}
 }
 
 .todo-list button {
@@ -167,6 +176,10 @@ form button {
 }
 
 @media screen and (max-width: 412px) {
+	.conntainer {
+		font-size: 1.2rem;
+	}
+
 	form .desktop-view {
 		display: none;
 	}
