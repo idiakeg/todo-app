@@ -17,7 +17,7 @@ const TodoListItem = (props) => {
 					<span className={isChecked ? "checked" : null}>{todo}</span>
 				</label>
 				<button onClick={() => handleDelete(id)}>
-					<i class="fas fa-trash"></i>
+					<i class="fas fa-trash-alt"></i>
 				</button>
 			</div>
 		</>
