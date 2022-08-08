@@ -7,6 +7,7 @@ import Todo from "./components/todo/Todo";
 function App() {
 	//USESTATE DEFINITIONS
 	const [task, setTask] = useState("");
+	const [isEmpty, setIsEmpty] = useState(false);
 	const [todos, setTodos] = useState(
 		JSON.parse(localStorage.getItem("todo")) !== null
 			? JSON.parse(localStorage.getItem("todo"))
@@ -56,7 +57,10 @@ function App() {
 		if (task !== "") {
 			setTodos(newTodo);
 		} else {
-			alert("This field cannot be left empty");
+			setIsEmpty(true);
+			setTimeout(() => {
+				setIsEmpty(false);
+			}, 3000);
 		}
 
 		setTask("");
@@ -78,6 +82,7 @@ function App() {
 
 	return (
 		<div className="App">
+			{isEmpty ? <div className="errorMsg">Please create a task.</div> : null}
 			<div className="container">
 				<h1>Todo</h1>
 				<div className="form-todo-container">
