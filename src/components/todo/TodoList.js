@@ -1,8 +1,11 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
+import { useContext } from "react";
+import Context from "../../contexts/Context";
 
-const TodoList = (props) => {
-	const { todos, handleDelete, handleChecked, isChecked } = props;
+const TodoList = () => {
+	const { todos, handleDelete, handleChecked, isChecked } = useContext(Context);
+
 	return todos.length > 0 ? (
 		<>
 			<div className="todo-list-container">
