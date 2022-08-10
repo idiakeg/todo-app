@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import Context from "../contexts/Context";
 
-const Form = (props) => {
-	const { handleChange, handleSubmit, value } = props;
+const Form = () => {
+	const { handleChange, handleSubmit, task } = useContext(Context);
+
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
@@ -9,7 +12,7 @@ const Form = (props) => {
 					type="text"
 					placeholder="Create a task"
 					onChange={handleChange}
-					value={value}
+					value={task}
 				/>
 				<button className="desktop-view" type="submit">
 					Add
