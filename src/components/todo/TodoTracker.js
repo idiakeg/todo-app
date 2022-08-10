@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import Context from "../../contexts/Context";
 
-const TodoTracker = (props) => {
-	const { todos, checkedTodos } = props;
+const TodoTracker = () => {
+	const { todos, checkedTodos } = useContext(Context);
+
 	return (
 		<>
 			<div className="todo-tracker">
