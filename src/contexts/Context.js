@@ -12,11 +12,7 @@ export const ContextProvider = ({ children }) => {
 			? JSON.parse(localStorage.getItem("todo"))
 			: []
 	);
-	const [isChecked, setIsChecked] = useState(
-		JSON.parse(localStorage.getItem("isChecked")) !== null
-			? JSON.parse(localStorage.getItem("isChecked"))
-			: {}
-	);
+
 	const [checkedTodos, setCheckedTodos] = useState(
 		JSON.parse(localStorage.getItem("checkedTodos")) !== null
 			? JSON.parse(localStorage.getItem("checkedTodos"))
