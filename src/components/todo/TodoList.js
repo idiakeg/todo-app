@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Context from "../../contexts/Context";
 
 const TodoList = () => {
-	const { todos, handleDelete, handleChecked, isChecked } = useContext(Context);
+	const { todos, handleDelete, handleChecked } = useContext(Context);
 
 	return todos.length > 0 ? (
 		<>
@@ -15,7 +15,7 @@ const TodoList = () => {
 						id={todo.id}
 						handleDelete={handleDelete}
 						handleChecked={handleChecked}
-						isChecked={isChecked[todo.id]}
+						isChecked={todo.completed}
 						key={todo.id}
 					/>
 				))}
