@@ -26,32 +26,24 @@ export const ContextProvider = ({ children }) => {
 	};
 
 	const handleChecked = (id) => {
-		setIsChecked((current) => {
-			let data = { ...current, [id]: !current[id] };
-			let checkedArr = Object.values(data).filter((item) => item === true);
-			setCheckedTodos(checkedArr);
-			return {
-				...current,
-				[id]: !current[id],
-			};
+		let newTodos = todos.map((todo) => {
+			if (todo.id === id) {
+				return {
+					...todo,
+					completed: !todo.completed,
+				};
+			} else {
+				return todo;
+			}
 		});
+
+		setTodos(newTodos);
 	};
 
 	const handleDelete = (id) => {
 		const filteredTodo = todos.filter((todo) => todo.id !== id);
 		setTodos([...filteredTodo]);
-		setIsChecked((current) => {
-			console.log("before : ", current, id);
-			if (current.hasOwnProperty(id)) {
-				console.log("delet ", id);
-				delete current[id];
-			}
 
-			console.log("afta ", current);
-			return current;
-		});
-
-		console.log(isChecked);
 		// How to set the state of isChecked to reflect the deleted id?
 	};
 
@@ -59,7 +51,10 @@ export const ContextProvider = ({ children }) => {
 		e.preventDefault();
 		let re = /\s+/g;
 		let formattedTask = task.trim().replace(re, " ");
-		const newTodo = [...todos, { todo: formattedTask, id: uuidv4() }];
+		const newTodo = [
+			...todos,
+			{ todo: formattedTask, id: uuidv4(), completed: false },
+		];
 
 		if (task !== "") {
 			setTodos(newTodo);
@@ -83,8 +78,7 @@ export const ContextProvider = ({ children }) => {
 				setIsEmpty,
 				todos,
 				setTodos,
-				isChecked,
-				setIsChecked,
+
 				checkedTodos,
 				setCheckedTodos,
 				handleChange,
