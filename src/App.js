@@ -5,17 +5,13 @@ import Todo from "./components/todo/Todo";
 import Context from "./contexts/Context";
 
 function App() {
-	const { todos, isChecked, checkedTodos, isEmpty } = useContext(Context);
+	const { todos, checkedTodos, isEmpty } = useContext(Context);
 
 	// USE EFFECT DEFINITIONS
 	useEffect(() => {
 		// if (!todos.length) return;
 		localStorage.setItem("todo", JSON.stringify(todos));
 	}, [todos]);
-
-	useEffect(() => {
-		localStorage.setItem("isChecked", JSON.stringify(isChecked));
-	}, [isChecked]);
 
 	useEffect(() => {
 		localStorage.setItem("checkedTodos", JSON.stringify(checkedTodos));
