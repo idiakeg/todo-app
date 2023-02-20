@@ -36,15 +36,19 @@ export const ContextProvider = ({ children }) => {
 				return todo;
 			}
 		});
-
+		// set the checkedArr with the newTodo data
+		let newCheckedArr = newTodos.filter(({ completed }) => completed === true);
 		setTodos(newTodos);
+		setCheckedTodos(newCheckedArr);
 	};
 
 	const handleDelete = (id) => {
 		const filteredTodo = todos.filter((todo) => todo.id !== id);
 		setTodos([...filteredTodo]);
 
-		// How to set the state of isChecked to reflect the deleted id?
+		const filteredCheckedTodos = checkedTodos.filter((item) => item.id === id);
+
+		setCheckedTodos(filteredCheckedTodos);
 	};
 
 	const handleSubmit = (e) => {
