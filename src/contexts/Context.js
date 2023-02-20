@@ -46,7 +46,7 @@ export const ContextProvider = ({ children }) => {
 		const filteredTodo = todos.filter((todo) => todo.id !== id);
 		setTodos([...filteredTodo]);
 
-		const filteredCheckedTodos = checkedTodos.filter((item) => item.id === id);
+		const filteredCheckedTodos = checkedTodos.filter((item) => item.id !== id);
 
 		setCheckedTodos(filteredCheckedTodos);
 	};
