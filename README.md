@@ -1,5 +1,7 @@
 # todo-app
 
+## Click [here](https://idiakeg.github.io/todo-app/) to explore the app.
+
 A task tracker
 
 This is an application that helps you keep track of your daily, weekly or monthly tasks.
